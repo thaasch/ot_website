@@ -39,7 +39,26 @@ page {
 
 	10 = FLUIDTEMPLATE
 	10 {
-		file = typo3conf/ext/ot_website/Resources/Private/Templates/DefaultTemplate.html
+		file.cObject = CASE
+		file.cObject {
+			key {
+
+				data = levelfield: -1, backend_layout_next_level, slide
+				override {
+					data = TSFE:page|backend_layout
+				}
+			}
+			1 = TEXT
+			1.value = typo3conf/ext/ot_website/Resources/Private/Templates/DefaultTemplate.html
+
+			2 = TEXT
+			2.value = typo3conf/ext/ot_website/Resources/Private/Templates/OneColumn.html
+
+			default <
+		}
+
+
+
 		layoutRootPaths {
 			10 = typo3conf/ext/ot_website/Resources/Private/Layouts
 		}
@@ -57,6 +76,10 @@ page {
 			crdate = TEXT
 			crdate.data = TSFE:page|crdate
 			crdate.strftime = %A, %e. %B %Y :: %T
+			content_0 < styles.content.get
+			content_1 < styles.content.getLeft
+			content_2 < styles.content.getRight
+			content_3 < styles.content.getBorder
 		}
 	}
 

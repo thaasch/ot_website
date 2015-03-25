@@ -1,3 +1,23 @@
+lib.subNavigation = HMENU
+lib.subNavigation {
+	entryLevel = 2
+	wrap = <div class="list-group">|</div>
+
+	1 = TMENU
+	1 {
+		NO = 1
+		NO {
+			ATagParams = class="list-group-item"
+			stdWrap.htmlSpecialChars = 1
+		}
+
+		CUR < .NO
+		CUR {
+			ATagParams = class="list-group-item active"
+		}
+	}
+}
+
 lib.mainNavigation = HMENU
 lib.mainNavigation {
 	special = directory
