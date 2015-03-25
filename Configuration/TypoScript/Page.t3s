@@ -1,3 +1,47 @@
+my_content < tt_content
+my_content {
+	textpic >
+	textpic = COA
+	textpic {
+		stdWrap = <div class="well">|</div>
+		10 = TEXT
+		10 {
+			field = header
+			wrap = <h2>|</h2>
+		}
+
+		15 = FILES
+		15 {
+			references {
+				table = tt_content
+				uid.field = uid
+				fieldName = image
+			}
+			renderObj = COA
+			renderObj {
+				wrap = <figure>|</figure>
+				10 = IMAGE
+				10 {
+					params = class="img-responsive"
+					file.import.data = file:current:uid
+					file.treatIdAsReference = 1
+					altText.data = file:current:alternative
+					titleText.data = file:current:title
+				}
+
+				20 = TEXT
+				20 {
+					data = file:current:description
+					required = 1
+					wrap = <figcaption>|</figcaption>
+				}
+			}
+		}
+
+		20 < tt_content.text.20
+	}
+}
+
 page = PAGE
 page {
 	meta {
@@ -77,6 +121,9 @@ page {
 			crdate.data = TSFE:page|crdate
 			crdate.strftime = %A, %e. %B %Y :: %T
 			content_0 < styles.content.get
+			content_0 {
+				renderObj =< my_content
+			}
 			content_1 < styles.content.getLeft
 			content_2 < styles.content.getRight
 			content_3 < styles.content.getBorder
