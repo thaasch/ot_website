@@ -1,6 +1,6 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Config.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Plugin.t3s">
-#<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Lib.t3s">
+<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Lib.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Page.t3s">
 <INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/LanguageEnUs1.t3s">
 #<INCLUDE_TYPOSCRIPT: source="FILE:typo3conf/ext/ot_website/Configuration/TypoScript/Debug.t3s">

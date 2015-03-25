@@ -19,10 +19,9 @@
 					<li {f:if(condition: '{data.uid} == 1', then: 'class="active"')}>
 						<f:link.page pageUid="1">
 							<span class="glyphicon glyphicon-home"></span>
-						</f:link.page>>
+						</f:link.page>
 					</li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<f:cObject typoscriptObjectPath="lib.mainNavigation"/>
 				</ul>
 			</div>
 			<!-- /.nav-collapse -->
@@ -32,9 +31,10 @@
 	<!-- /.navbar -->
 	<div class="container">
 
+		<f:comment>
 		<f:debug title="Page">{data}</f:debug>
 		<f:debug title="Settings">{all}</f:debug>
-
+		</f:comment>
 		<f:render section="Content"/>
 
 		<hr>
@@ -45,14 +45,14 @@
 			<p>Seite erstellt am {crdate}</p>
 
 			<!--different ways to use viewhelpers-->
-
+<p>
 			[
 			<f:translate id="formatDateTime" extensionName="ot_website"/>
 			]
 			<f:format.date format="{f:translate(
 				id: 'formatDateTime',
-				extensionName: 'ot_website'
-			)}">{data.crdate}
+				extensionName: 'ot_website')}">
+				{data.crdate}
 			</f:format.date>
 			</p>
 

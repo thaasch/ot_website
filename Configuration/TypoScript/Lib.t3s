@@ -1,0 +1,47 @@
+lib.mainNavigation = HMENU
+lib.mainNavigation {
+	special = directory
+	special.value = 1
+
+	1 = TMENU
+	1 {
+		# Menu as Sitemap
+		expAll = 1
+		# Normal
+		NO = 1
+		NO {
+			wrapItemAndSub = <li>|</li>
+			stdWrap.htmlSpecialChars = 1
+		}
+
+		# Current
+		CUR < .NO
+		CUR {
+			wrapItemAndSub = <li class="active">|</li>
+		}
+
+		IFSUB < .NO
+		IFSUB {
+			wrapItemAndSub = <li class="dropdown">|</li>
+			doNotLinkIt = 1
+			linkWrap = <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expand="false">|<span class="sr-only">.</span> <span class="caret"></span></a>
+		}
+
+		CURIFSUB < .IFSUB
+		CURIFSUB {
+			wrapItemAndSub = <li class="active dropdown">|</li>
+		}
+	}
+	2 < .1
+	2 {
+		wrap = <ul class="dropdown-menu" role="menu">|</ul>
+		IFSUB >
+		CURIFSUB >
+		ACTIFSUB >
+		SPC = 1
+		SPC {
+			doNotLinkIt = 1
+			wrapItemAndSub  = <li>|</li><li class="divider"></li>
+		}
+	}
+}
