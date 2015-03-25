@@ -1,0 +1,8 @@
+plugin {
+	ot_website {
+		settings{
+			# cat=PLUGIN.OT_WEBSITE/others/a; type=string; label=Company name:Name der Firma
+			companyName =
+		}
+	}
+}

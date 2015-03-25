@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<div xmlns:f="https://fluidtypo3.org/schemas/fluid-6.2.0.xsd" xmlns="http://www.w3.org/1999/xhtml"
+	 lang="en">
+
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+						aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">{settings.companyName}</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li {f:if(condition: '{data.uid} == 1', then: 'class="active"')}>
+						<f:link.page pageUid="1">
+							<span class="glyphicon glyphicon-home"></span>
+						</f:link.page>>
+					</li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<!-- /.nav-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!-- /.navbar -->
+	<div class="container">
+
+		<f:debug title="Page">{data}</f:debug>
+		<f:debug title="Settings">{all}</f:debug>
+
+		<f:render section="Content"/>
+
+		<hr>
+
+		<footer>
+			<p>&copy; {settings.companyName} 2014</p>
+
+			<p>Seite erstellt am {crdate}</p>
+
+			<!--different ways to use viewhelpers-->
+
+			[
+			<f:translate id="formatDateTime" extensionName="ot_website"/>
+			]
+			<f:format.date format="{f:translate(
+				id: 'formatDateTime',
+				extensionName: 'ot_website'
+			)}">{data.crdate}
+			</f:format.date>
+			</p>
+
+			<f:translate id="page_created"
+						 default="Diese Seite wurde am %1s um %2s Uhr erstellt."
+						 extensionName="ot_website"
+						 arguments="{
+0: '
+	{f:format.date(
+		format: \'{f:translate(id: \\\'formatDatum\\\', default: \\\'m/d/Y\\\', extensionName: \\\'ot_website\\\')}\',
+		date: \'@{data.crdate}\'
+	)}
+	',
+1: '
+	{f:format.date(
+		format: \'{f:translate(id: \\\'formatZeit\\\', default: \\\'H:i\\\', extensionName: \\\'ot_website\\\')}\',
+		date: \'@{data.crdate}\'
+	)}
+	'
+
+	}"
+					/>
+
+			<p>
+				{f:format.date(date: '{data.crdate}', format: 'd.m.Y H:i:s')}
+			</p>
+
+			<p>
+				{data.crdate -> f:format.date(format: 'd.m.Y H:i:s')}
+			</p>
+
+		</footer>
+	</div>
+</div>
