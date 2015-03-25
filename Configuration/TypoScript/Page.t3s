@@ -19,7 +19,7 @@ my_content {
 			}
 			renderObj = COA
 			renderObj {
-				wrap = <figure>|</figure>
+				wrap = <figure class="col-xs-12 col-sm-4">|</figure>
 				10 = IMAGE
 				10 {
 					params = class="img-responsive"
@@ -37,8 +37,11 @@ my_content {
 				}
 			}
 		}
-
+		19 = TEXT
+		19.value = <div class="col-xs-12 cl-sm-8">
 		20 < tt_content.text.20
+		21 = TEXT
+		21.value = </div>
 	}
 }
 
